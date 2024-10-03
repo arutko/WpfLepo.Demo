@@ -1,0 +1,61 @@
+﻿<Window x:Class="WpfLepo.Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WpfLepo.Demo"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:viewmodels="clr-namespace:WpfLepo.Demo.ViewModels"
+        xmlns:views="clr-namespace:WpfLepo.Demo.Views"
+        Title="Navigation Window"
+        Width="800"
+        Height="450"
+        d:DataContext="{d:DesignInstance viewmodels:MainWindowViewModel}"
+        ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+        ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+        mc:Ignorable="d">
+    
+    <!--<ui:NavigationView x:Name="RootNavigationView" MenuItemsSource="{Binding NavigationItems}"/>-->
+    <ui:NavigationView x:Name="RootNavigationView">
+        <ui:NavigationView.AutoSuggestBox>
+            <ui:AutoSuggestBox x:Name="AutoSuggestBox" PlaceholderText="Search">
+                <ui:AutoSuggestBox.Icon>
+                    <ui:IconSourceElement>
+                        <ui:SymbolIconSource Symbol="Search24" />
+                    </ui:IconSourceElement>
+                </ui:AutoSuggestBox.Icon>
+            </ui:AutoSuggestBox>
+        </ui:NavigationView.AutoSuggestBox>
+        <ui:NavigationView.Header>
+            <ui:BreadcrumbBar
+                  Margin="42,32,0,0"
+                  FontSize="28"
+                  FontWeight="DemiBold" />
+        </ui:NavigationView.Header>
+        <ui:NavigationView.MenuItems>
+            <ui:NavigationViewItem Content="Home" TargetPageType="{x:Type views:HomePage}">
+                <ui:NavigationViewItem.Icon>
+                    <ui:SymbolIcon Symbol="Home24" />
+                </ui:NavigationViewItem.Icon>
+            </ui:NavigationViewItem>
+            <ui:NavigationViewItem Content="Design Guidance" TargetPageType="{x:Type views:DesignGuidancePage}">
+                <ui:NavigationViewItem.Icon>
+                    <ui:SymbolIcon Symbol="DataHistogram24" />
+                </ui:NavigationViewItem.Icon>
+            </ui:NavigationViewItem>
+            <ui:NavigationViewItem Content="All samples" TargetPageType="{x:Type views:AllSamplesPage}">
+                <ui:NavigationViewItem.Icon>
+                    <ui:SymbolIcon Symbol="Accessibility16" />
+                </ui:NavigationViewItem.Icon>
+            </ui:NavigationViewItem>
+        </ui:NavigationView.MenuItems>
+        <ui:NavigationView.FooterMenuItems>
+            <ui:NavigationViewItem Content="Settings" TargetPageType="{x:Type views:SettingsPage}">
+                <ui:NavigationViewItem.Icon>
+                    <ui:SymbolIcon Symbol="Settings24" />
+                </ui:NavigationViewItem.Icon>
+            </ui:NavigationViewItem>
+        </ui:NavigationView.FooterMenuItems>
+    </ui:NavigationView>
+</Window>
